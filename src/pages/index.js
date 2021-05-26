@@ -14,8 +14,9 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/page-2/">About</Link> <br />
+    <Link to="/page-3/">Contacts</Link> <br />
     <Link to="/using-typescript/">Some More</Link>
   </Layout>
-)
+);
 
 export default IndexPage

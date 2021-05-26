@@ -1,9 +1,9 @@
-name: sample-gatsby
+name: wine-gatsby
 static_sites:
 - build_command: yarn build
   environment_slug: gatsby
   github:
     branch: main
     deploy_on_push: true
-    repo: digitalocean/sample-gatsby
-  name: sample-gatsby
+    repo: nauris-m/wine-gatsby
+  name: wine-gatsby
