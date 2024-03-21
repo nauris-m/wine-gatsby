@@ -9,7 +9,7 @@ const IndexPage = () => (
     <Layout>
         <SEO title="Home"/>
         <h1>winery</h1>
-        <p>Welcome to winery!</p>
+        <p>Welcome to winery! Some tasty wines from LV regions!</p>
         <div style={{maxWidth: `300px`, marginBottom: `1.45rem`}}>
             <Image/>
         </div>
