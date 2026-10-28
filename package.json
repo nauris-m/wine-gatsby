@@ -1,38 +1,41 @@
 {
   "name": "wine-gatsby",
   "private": true,
-  "description": "simple Gatsby app",
+  "description": "winery.lv: a directory of Latvia's small and craft wineries",
   "version": "0.1.0",
   "author": "nauris-m",
   "dependencies": {
-    "gatsby": "^2.23.12",
-    "gatsby-image": "^2.4.9",
-    "gatsby-plugin-manifest": "^2.4.14",
-    "gatsby-plugin-offline": "^3.2.13",
-    "gatsby-plugin-react-helmet": "^3.3.6",
-    "gatsby-plugin-sharp": "^2.6.14",
-    "gatsby-source-filesystem": "^2.3.14",
-    "gatsby-transformer-sharp": "^2.5.7",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "@fontsource/catamaran": "^5.3.0",
+    "@fontsource/mrs-saint-delafield": "^5.3.0",
+    "@fontsource/mulish": "^5.3.0",
+    "gatsby": "^5.16.1",
+    "gatsby-plugin-image": "^3.16.0",
+    "gatsby-plugin-manifest": "^5.16.0",
+    "gatsby-plugin-sharp": "^5.16.0",
+    "gatsby-plugin-sitemap": "^6.16.0",
+    "gatsby-source-filesystem": "^5.16.0",
+    "gatsby-transformer-sharp": "^5.16.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "prettier": "^3.9.10"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "0BSD",
+  "engines": {
+    "node": ">=22 <25"
+  },
   "scripts": {
-    "build": "node sammy.js; gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "node sammy.js; npm run serve",
+    "start": "gatsby develop",
+    "build": "gatsby build",
     "serve": "gatsby serve -p ${PORT:-8080}",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "repository": {
     "type": "git",

@@ -1,11 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `wines`,
-    description: `wines from regions of LV`,
-    author: `@gatsbyjs`,
+    title: `winery.lv`,
+    description: `Directory of Latvia's small and craft wineries, with addresses and websites.`,
+    siteUrl: `https://winery.lv`,
+    image: `/og-image.jpg`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,17 +20,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `winery`,
+        name: `winery.lv: Latvian craft wineries`,
+        short_name: `winery.lv`,
         start_url: `/`,
-        background_color: `#fefefe`,
-        theme_color: `#fefefe`,
+        background_color: `#f6f2ec`,
+        theme_color: `#0d0d0c`,
         display: `minimal-ui`,
-        icon: `src/images/wine-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/wine-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

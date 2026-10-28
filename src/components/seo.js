@@ -1,16 +1,14 @@
 /**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
+ * Page <head> tags. Render it from a page's exported `Head` function.
  *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
+ * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 
 import React from "react"
 import PropTypes from "prop-types"
-import {Helmet} from "react-helmet"
 import {graphql, useStaticQuery} from "gatsby"
 
-function SEO({description, lang, meta, title}) {
+function SEO({description = ``, lang = `en`, pathname = `/`, title, children}) {
     const {site} = useStaticQuery(
         graphql`
       query {
@@ -18,55 +16,47 @@ function SEO({description, lang, meta, title}) {
           siteMetadata {
             title
             description
-            author
+            siteUrl
+            image
           }
         }
       }
     `
     );
 
+    const {siteUrl} = site.siteMetadata;
     const metaDescription = description || site.siteMetadata.description;
+    const fullTitle = `${title} | ${site.siteMetadata.title}`;
+    const url = `${siteUrl}${pathname}`;
+    const image = `${siteUrl}${site.siteMetadata.image}`;
 
     return (
-        <Helmet
-            htmlAttributes={{
-                lang,
-            }}
-            title={title}
-            titleTemplate={`%s | ${site.siteMetadata.title}`}
-            meta={[
-                {
-                    name: `description`,
-                    content: metaDescription,
-                },
-                {
-                    property: `og:title`,
-                    content: title,
-                },
-                {
-                    property: `og:description`,
-                    content: metaDescription,
-                },
-                {
-                    property: `og:type`,
-                    content: `website`,
-                }
-            ].concat(meta)}
-        />
+        <>
+            <html lang={lang}/>
+            <title>{fullTitle}</title>
+            <meta name="description" content={metaDescription}/>
+            <link rel="canonical" href={url}/>
+            <meta property="og:type" content="website"/>
+            <meta property="og:site_name" content={site.siteMetadata.title}/>
+            <meta property="og:title" content={fullTitle}/>
+            <meta property="og:description" content={metaDescription}/>
+            <meta property="og:url" content={url}/>
+            <meta property="og:image" content={image}/>
+            <meta property="og:image:width" content="1200"/>
+            <meta property="og:image:height" content="630"/>
+            <meta name="twitter:card" content="summary_large_image"/>
+            <meta name="theme-color" content="#0d0d0c"/>
+            {children}
+        </>
     )
 }
-
-SEO.defaultProps = {
-    lang: `en`,
-    meta: [],
-    description: ``,
-};
 
 SEO.propTypes = {
     description: PropTypes.string,
     lang: PropTypes.string,
-    meta: PropTypes.arrayOf(PropTypes.object),
+    pathname: PropTypes.string,
     title: PropTypes.string.isRequired,
+    children: PropTypes.node,
 };
 
 export default SEO
